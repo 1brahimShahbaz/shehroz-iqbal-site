@@ -1,0 +1,45 @@
+.masonry-list {
+  position: relative;
+  width: 100%;
+}
+
+.masonry-item-wrapper {
+  position: absolute;
+  will-change: transform, width, height, opacity;
+  padding: 6px;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+}
+
+.masonry-item-wrapper > .masonry-item-img {
+  position: relative;
+  background-size: cover;
+  background-position: center center;
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  box-shadow:
+    0 10px 40px -12px rgba(10, 39, 64, 0.25),
+    0 0 0 1px rgba(10, 39, 64, 0.06);
+  overflow: hidden;
+}
+
+.masonry-item-wrapper:focus-visible {
+  outline: 2px solid #dc2626;
+  outline-offset: 4px;
+  border-radius: 1rem;
+}
+
+.masonry-color-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(220, 38, 38, 0.35),
+    rgba(10, 39, 64, 0.45)
+  );
+  opacity: 0;
+  pointer-events: none;
+  border-radius: 1rem;
+}

@@ -1,0 +1,148 @@
+"use client";
+
+import React, { forwardRef, useRef } from "react";
+import Image from "next/image";
+import { motion, useReducedMotion } from "framer-motion";
+import { MonitorPlay, Radio, NotebookText, FileCheck2 } from "lucide-react";
+import { AnimatedBeam } from "@/components/magicui/animated-beam";
+import { EASE_OUT } from "@/lib/motion";
+import { cn } from "@/lib/utils";
+
+const Circle = forwardRef<
+  HTMLDivElement,
+  { className?: string; children?: React.ReactNode }
+>(({ className, children }, ref) => (
+  <div
+    ref={ref}
+    className={cn(
+      "z-10 flex size-14 items-center justify-center rounded-2xl border border-gray-200 bg-white shadow-[0_10px_28px_-12px_rgba(10,39,64,0.55)] sm:size-16",
+      className
+    )}
+  >
+    {children}
+  </div>
+));
+Circle.displayName = "Circle";
+
+type NodeProps = {
+  nodeRef: React.RefObject<HTMLDivElement>;
+  icon: typeof MonitorPlay;
+  label: string;
+};
+
+function Node({ nodeRef, icon: Icon, label }: NodeProps) {
+  return (
+    <div className="flex flex-col items-center gap-2">
+      <Circle ref={nodeRef} className="text-gold-500">
+        <Icon className="h-6 w-6 sm:h-7 sm:w-7" strokeWidth={1.75} />
+      </Circle>
+      <span className="max-w-[84px] text-center text-[11px] font-semibold leading-tight text-navy-900 sm:text-xs">
+        {label}
+      </span>
+    </div>
+  );
+}
+
+export function AboutEcosystem() {
+  const reduce = useReducedMotion();
+  const containerRef = useRef<HTMLDivElement>(null);
+  const centerRef = useRef<HTMLDivElement>(null);
+  const recordedRef = useRef<HTMLDivElement>(null);
+  const liveRef = useRef<HTMLDivElement>(null);
+  const notesRef = useRef<HTMLDivElement>(null);
+  const papersRef = useRef<HTMLDivElement>(null);
+
+  const beam = {
+    gradientStartColor: "#DC2626",
+    gradientStopColor: "#F87171",
+    pathColor: "#0A2740",
+    pathOpacity: 0.12,
+    duration: 4.5,
+  };
+
+  return (
+    <motion.div
+      initial={reduce ? undefined : { opacity: 0, y: 24 }}
+      whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.6, ease: EASE_OUT }}
+      className="relative mx-auto mt-14 flex h-[360px] w-full max-w-3xl items-center justify-center overflow-hidden sm:h-[420px]"
+      ref={containerRef}
+    >
+      <div className="flex size-full max-h-[280px] max-w-2xl items-stretch justify-between">
+        {/* Left column */}
+        <div className="flex flex-col items-center justify-between py-2">
+          <Node nodeRef={recordedRef} icon={MonitorPlay} label="Recorded lectures" />
+          <Node nodeRef={liveRef} icon={Radio} label="Live sessions" />
+        </div>
+
+        {/* Center — Orb-Ed */}
+        <div className="flex flex-col items-center justify-center">
+          <div
+            ref={centerRef}
+            className="z-10 flex size-24 items-center justify-center rounded-3xl border border-gray-200 bg-white p-4 shadow-[0_20px_50px_-18px_rgba(220,38,38,0.5)] sm:size-28"
+          >
+            <div className="relative h-full w-full">
+              <Image
+                src="/images/orbed.png"
+                alt="Orb-Ed learning platform"
+                fill
+                sizes="112px"
+                className="object-contain"
+              />
+            </div>
+          </div>
+          <span className="mt-3 text-xs font-semibold uppercase tracking-wider2 text-gold-500">
+            Orb-Ed
+          </span>
+        </div>
+
+        {/* Right column */}
+        <div className="flex flex-col items-center justify-between py-2">
+          <Node nodeRef={notesRef} icon={NotebookText} label="Notes" />
+          <Node nodeRef={papersRef} icon={FileCheck2} label="Past papers" />
+        </div>
+      </div>
+
+      {/* Beams — left side flows in, right side flows out */}
+      <AnimatedBeam
+        containerRef={containerRef}
+        fromRef={recordedRef}
+        toRef={centerRef}
+        curvature={-70}
+        endYOffset={-12}
+        delay={0}
+        {...beam}
+      />
+      <AnimatedBeam
+        containerRef={containerRef}
+        fromRef={liveRef}
+        toRef={centerRef}
+        curvature={70}
+        endYOffset={12}
+        delay={0.6}
+        {...beam}
+      />
+      <AnimatedBeam
+        containerRef={containerRef}
+        fromRef={notesRef}
+        toRef={centerRef}
+        curvature={-70}
+        endYOffset={-12}
+        reverse
+        delay={0.9}
+        {...beam}
+      />
+      <AnimatedBeam
+        containerRef={containerRef}
+        fromRef={papersRef}
+        toRef={centerRef}
+        curvature={70}
+        endYOffset={12}
+        reverse
+        delay={1.3}
+        {...beam}
+      />
+    </motion.div>
+  );
+}
