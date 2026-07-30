@@ -111,7 +111,7 @@ export default async function BlogPostPage({
               <div className="mt-6 flex items-center gap-4">
                 <div className="relative h-12 w-12 overflow-hidden rounded-full ring-2 ring-gold-500/30">
                   <Image
-                    src="/images/avatar.png"
+                    src="/images/avatar.webp"
                     alt="Sir Shehroz Iqbal, CAIE Accounting tutor"
                     width={48}
                     height={48}
@@ -190,7 +190,7 @@ export default async function BlogPostPage({
               <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-card-rest">
                 <div className="relative mx-auto h-16 w-16 overflow-hidden rounded-full ring-2 ring-gold-500/30">
                   <Image
-                    src="/images/avatar.png"
+                    src="/images/avatar.webp"
                     alt="Sir Shehroz Iqbal, CAIE Accounting tutor"
                     width={64}
                     height={64}

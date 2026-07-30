@@ -28,7 +28,7 @@
 
 const SPREADSHEET_ID = "1EImBZbFFgwZoC7TT5OjzbeetKeBFTb1i7omTx_Ro0lo";
 const SHEET_NAME = "Feedback";
-const NOTIFY_EMAIL = "hi.zarakmushtaq@gmail.com"; // set "" to disable email alerts
+const NOTIFY_EMAIL = "shehroz420si@gmail.com"; // set "" to disable email alerts
 
 function doPost(e) {
   try {

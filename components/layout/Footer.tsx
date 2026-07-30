@@ -12,7 +12,6 @@ const quickLinks = [
   { label: "Home", href: "/" },
   { label: CTA_LABELS.enrollInterest, href: "/register" },
   { label: "About", href: "/about" },
-  { label: "Notes", href: "/notes" },
   { label: "Extra Credit", href: "/extra-credit" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
@@ -21,7 +20,7 @@ const quickLinks = [
 const courseLinks = [
   { label: "AS Level", href: "/courses/as-level" },
   { label: "A2 Level", href: "/courses/a2-level" },
-  { label: "O Level", href: "/courses/o-level" },
+  { label: "O Level & IGCSE", href: "/courses/o-level" },
 ];
 
 const SocialIcon = ({ name }: { name: string }) => {

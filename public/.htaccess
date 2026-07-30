@@ -25,9 +25,6 @@ Options -MultiViews
   RewriteCond %{THE_REQUEST} \s/+([^\s?]+)\.html[\s?] [NC]
   RewriteRule ^(.+)\.html$ /$1 [R=301,L]
 
-  # FIX 1: /notes app page — serve notes.html even when public/notes/ (PDF assets) exists
-  RewriteRule ^notes/?$ notes.html [L]
-
   # Serve page.html when a same-name folder exists (fixes 403 on /about, /courses/*, etc.)
   RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI}.html -f
   RewriteRule ^(.+?)/?$ $1.html [L]
@@ -54,3 +51,61 @@ Options -MultiViews
 </FilesMatch>
 
 ErrorDocument 404 /404.html
+
+# ─────────────────────────────────────────────────────────────
+# Performance: compression (gzip + Brotli where available)
+# ─────────────────────────────────────────────────────────────
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml \
+    text/javascript application/javascript application/json \
+    application/xml application/rss+xml image/svg+xml \
+    application/x-font-ttf application/vnd.ms-fontobject \
+    font/ttf font/otf font/woff font/woff2
+</IfModule>
+<IfModule mod_brotli.c>
+  AddOutputFilterByType BROTLI_COMPRESS text/html text/plain text/css text/xml \
+    text/javascript application/javascript application/json \
+    application/xml image/svg+xml font/ttf font/otf font/woff font/woff2
+</IfModule>
+
+# ─────────────────────────────────────────────────────────────
+# Caching: far-future expiry for static assets, revalidate HTML
+# ─────────────────────────────────────────────────────────────
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css                  "access plus 1 year"
+  ExpiresByType application/javascript    "access plus 1 year"
+  ExpiresByType text/javascript           "access plus 1 year"
+  ExpiresByType image/webp                "access plus 1 year"
+  ExpiresByType image/avif                "access plus 1 year"
+  ExpiresByType image/png                 "access plus 1 year"
+  ExpiresByType image/jpeg                "access plus 1 year"
+  ExpiresByType image/gif                 "access plus 1 year"
+  ExpiresByType image/svg+xml             "access plus 1 year"
+  ExpiresByType image/x-icon              "access plus 1 year"
+  ExpiresByType image/vnd.microsoft.icon  "access plus 1 year"
+  ExpiresByType font/woff2                "access plus 1 year"
+  ExpiresByType font/woff                 "access plus 1 year"
+  ExpiresByType application/font-woff2    "access plus 1 year"
+  ExpiresByType text/html                 "access plus 0 seconds"
+</IfModule>
+
+<IfModule mod_headers.c>
+  # Versioned, content-hashed static assets → cache hard.
+  <FilesMatch "\.(?:css|js|mjs|woff2?|ttf|otf|eot)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  # Images (filenames are stable; bump the name when you replace one).
+  <FilesMatch "\.(?:webp|avif|png|jpe?g|gif|svg|ico)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  # HTML pages (static export) should always revalidate.
+  <FilesMatch "\.html$">
+    Header set Cache-Control "public, max-age=0, must-revalidate"
+  </FilesMatch>
+
+  # Security headers
+  Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+  Header set X-Content-Type-Options "nosniff"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>

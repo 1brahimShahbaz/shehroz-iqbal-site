@@ -21,17 +21,17 @@ const highlights = [
   {
     icon: PlayCircle,
     title: "Recorded lectures",
-    desc: "Full HD recordings to revisit every concept, anytime.",
+    desc: "Watch every lesson anytime with unlimited access to HD recordings.",
   },
   {
     icon: FileText,
     title: "Past papers",
-    desc: "Topical and yearly papers with worked solutions.",
+    desc: "Topical and yearly past papers supported by detailed solutions.",
   },
   {
     icon: BookOpen,
-    title: "Reading resources",
-    desc: "Curated notes and reading material for every chapter.",
+    title: "Study resources",
+    desc: "Well-organized notes and learning material designed to support every chapter.",
   },
 ];
 
@@ -93,9 +93,11 @@ export function SessionAnnouncement() {
             </h2>
 
             <p className="mt-4 max-w-xl text-[14px] leading-[1.6] text-white/85 sm:mt-6 sm:text-[17px] sm:leading-[1.7]">
-              Enrolment is open for O Level &amp; A Level Accounting. Join Sir
-              Shehroz Iqbal&apos;s structured programme and learn at your own
-              pace with everything you need to score an A*.
+              Enroll in O Level &amp; A Level Accounting and learn with one of
+              the best O Level Accounts teachers in Karachi, Sir Shehroz Iqbal.
+              Benefit from a structured learning experience that combines expert
+              guidance, flexible learning, and complete exam preparation to
+              score an A*.
             </p>
 
             <ul className="mt-6 grid gap-3 sm:mt-8 sm:grid-cols-1">

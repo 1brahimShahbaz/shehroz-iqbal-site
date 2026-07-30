@@ -179,6 +179,16 @@ const RotatingText = forwardRef<RotatingTextHandle, RotatingTextProps>(
       return () => clearInterval(intervalId);
     }, [next, rotationInterval, auto, reduceMotion, texts.length]);
 
+    const layoutMeasureText = useMemo(
+      () =>
+        measureText ??
+        texts.reduce(
+          (longest, text) => (text.length > longest.length ? text : longest),
+          ""
+        ),
+      [measureText, texts]
+    );
+
     if (reduceMotion || texts.length <= 1) {
       return (
         <span className={cn("text-rotate", mainClassName, className)}>
@@ -190,16 +200,6 @@ const RotatingText = forwardRef<RotatingTextHandle, RotatingTextProps>(
     const totalChars = elements.reduce(
       (sum, word) => sum + word.characters.length,
       0
-    );
-
-    const layoutMeasureText = useMemo(
-      () =>
-        measureText ??
-        texts.reduce(
-          (longest, text) => (text.length > longest.length ? text : longest),
-          ""
-        ),
-      [measureText, texts]
     );
 
     const animatedContent = (

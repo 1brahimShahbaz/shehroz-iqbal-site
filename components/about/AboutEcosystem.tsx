@@ -6,6 +6,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { MonitorPlay, Radio, NotebookText, FileCheck2 } from "lucide-react";
 import { AnimatedBeam } from "@/components/magicui/animated-beam";
 import { EASE_OUT } from "@/lib/motion";
+import { trackEvent } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 
 const Circle = forwardRef<
@@ -76,15 +77,22 @@ export function AboutEcosystem() {
           <Node nodeRef={liveRef} icon={Radio} label="Live sessions" />
         </div>
 
-        {/* Center — Orb-Ed */}
-        <div className="flex flex-col items-center justify-center">
+        {/* Center — Orb-Ed (links to the platform) */}
+        <a
+          href="https://orb-ed.pk/"
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => trackEvent("orbed_click", { location: "about_ecosystem" })}
+          aria-label="Visit Orb-Ed learning platform"
+          className="group flex flex-col items-center justify-center rounded-3xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2"
+        >
           <div
             ref={centerRef}
-            className="z-10 flex size-24 items-center justify-center rounded-3xl border border-gray-200 bg-white p-4 shadow-[0_20px_50px_-18px_rgba(220,38,38,0.5)] sm:size-28"
+            className="z-10 flex size-24 items-center justify-center rounded-3xl border border-gray-200 bg-white p-4 shadow-[0_20px_50px_-18px_rgba(220,38,38,0.5)] transition-all duration-300 ease-smooth group-hover:-translate-y-1 group-hover:border-gold-500/40 group-hover:shadow-[0_26px_60px_-16px_rgba(220,38,38,0.65)] sm:size-28"
           >
             <div className="relative h-full w-full">
               <Image
-                src="/images/orbed.png"
+                src="/images/orbed.webp"
                 alt="Orb-Ed learning platform"
                 fill
                 sizes="112px"
@@ -92,10 +100,10 @@ export function AboutEcosystem() {
               />
             </div>
           </div>
-          <span className="mt-3 text-xs font-semibold uppercase tracking-wider2 text-gold-500">
+          <span className="mt-3 inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-wider2 text-gold-500 transition-colors group-hover:text-navy-900">
             Orb-Ed
           </span>
-        </div>
+        </a>
 
         {/* Right column */}
         <div className="flex flex-col items-center justify-between py-2">

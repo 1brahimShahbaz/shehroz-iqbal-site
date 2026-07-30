@@ -328,26 +328,8 @@
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
-  }
-
-  @media (min-width: 640px) {
-    .hero-embla__viewport {
-      min-height: 560px;
-    }
-
-    .hero-embla__slide {
-      min-height: 560px;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .hero-embla__viewport {
-      min-height: 640px;
-    }
-
-    .hero-embla__slide {
-      min-height: 640px;
-    }
+    /* Banner artwork is 1920x640 (3:1) — let each slide size to the image. */
+    display: flex;
   }
 }
 

@@ -22,7 +22,6 @@ const STATIC_ROUTES: StaticRoute[] = [
   { path: "/courses/a2-level", changeFrequency: "weekly", priority: 0.9 },
   { path: "/courses/o-level", changeFrequency: "weekly", priority: 0.9 },
   { path: "/blog", changeFrequency: "daily", priority: 0.8 },
-  { path: "/notes", changeFrequency: "weekly", priority: 0.7 },
   { path: "/extra-credit", changeFrequency: "monthly", priority: 0.7 },
 ];
 

@@ -68,7 +68,7 @@ export function OrbEdRegistrationGuide() {
             <span className="flex min-w-0 items-center gap-3 sm:gap-3.5">
               <span className="relative inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-navy-900/5 ring-1 ring-navy-900/10 transition-colors duration-300 group-open:bg-gold-500/15 group-open:ring-gold-500/30 sm:h-10 sm:w-10">
                 <Image
-                  src="/images/orbed.png"
+                  src="/images/orbed.webp"
                   alt=""
                   width={22}
                   height={22}

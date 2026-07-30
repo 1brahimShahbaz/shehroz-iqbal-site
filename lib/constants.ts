@@ -8,7 +8,7 @@ export const SITE = {
     "Shehroz Iqbal (Sir Shehroz Iqbal) — Accounting tutor for CAIE 9706, O Level 7707 and Edexcel. 13+ years teaching, 1,250+ students. Online classes and notes.",
   url: "https://shehroziqbal.com",
   domain: "shehroziqbal.com",
-  email: "hi.shehroziqbal@gmail.com",
+  email: "shehroz420si@gmail.com",
   phone: "+92 326 8079622",
   whatsappNumber: "923268079622",
   whatsappDefaultMessage:
@@ -72,6 +72,14 @@ export const REGISTER_GRADES = [
   "A2 Level (9706)",
 ] as const;
 
+/** Subject options for the registration form. */
+export const REGISTER_SUBJECTS = [
+  "O/A Level Economics",
+  "O/A Level Maths",
+  "O/A Level Accounts",
+  "O/A Level Psychology",
+] as const;
+
 /** Button labels — form (/register) vs Orb-Ed LMS. */
 export const CTA_LABELS = {
   /** Links to the website interest form at /register */
@@ -103,7 +111,11 @@ export const ORBED_REGISTRATION_COURSES = [
 
 /** Google Analytics 4 — override via `NEXT_PUBLIC_GA_ID` in `.env.local`. */
 export const GA_ID =
-  process.env.NEXT_PUBLIC_GA_ID || "G-HE8WG95CGZ";
+  process.env.NEXT_PUBLIC_GA_ID || "G-EDB126EE6W";
+
+/** Google Tag Manager container — override via `NEXT_PUBLIC_GTM_ID` in `.env.local`. */
+export const GTM_ID =
+  process.env.NEXT_PUBLIC_GTM_ID || "GTM-TLBXW2J2";
 
 export type NavItem = {
   label: string;
@@ -119,11 +131,10 @@ export const NAV_ITEMS: NavItem[] = [
     children: [
       { label: "AS Level", href: "/courses/as-level", chipColor: "#1E8FCE" },
       { label: "A2 Level", href: "/courses/a2-level", chipColor: "#12466E" },
-      { label: "O Level", href: "/courses/o-level", chipColor: "#1C6BAA" },
+      { label: "O Level & IGCSE", href: "/courses/o-level", chipColor: "#1C6BAA" },
     ],
   },
   { label: "About", href: "/about" },
-  { label: "Notes", href: "/notes" },
   { label: "Extra Credit", href: "/extra-credit" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },

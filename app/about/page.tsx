@@ -5,19 +5,18 @@ import { AnimateSection } from "@/components/shared/AnimateSection";
 import { AboutHero } from "@/components/about/AboutHero";
 import { AboutStats } from "@/components/about/AboutStats";
 import { AboutEcosystem } from "@/components/about/AboutEcosystem";
+import { AboutLeadership } from "@/components/about/AboutLeadership";
 import { AboutInfoPanels } from "@/components/about/AboutInfoPanels";
-import { AboutTestimonials } from "@/components/about/AboutTestimonials";
-import { SirShehrozTagline } from "@/components/about/SirShehrozTagline";
 import { AboutCTA } from "@/components/about/AboutCTA";
 import { SectionEyebrow } from "@/components/shared/SectionEyebrow";
 import { SectionHeader } from "@/components/shared/SectionHeader";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
-  title: "About Shehroz Iqbal | Accounting Tutor Karachi",
+  title: "About Sir Shehroz Iqbal | Accounting Tutor, Karachi",
   titleAbsolute: true,
   description:
-    "Meet Shehroz Iqbal — A Level and O Level Accounting tutor based in Karachi, Pakistan. 13+ years teaching CAIE 9706 and Edexcel Accounting. Helping students across Pakistan and internationally achieve top grades.",
+    "Meet Sir Shehroz Iqbal, an Accounting tutor with 13+ years teaching O & A Level students in Karachi and online. Read his story and teaching approach.",
   path: "/about",
 });
 
@@ -55,28 +54,41 @@ export default function AboutPage() {
               <h2 className="mt-3 font-fraunces text-[28px] font-semibold leading-tight text-navy-900 sm:text-[34px]">
                 Teaching Accounting is what I do — and what I love.
               </h2>
-              <div className="mt-6 space-y-4 font-inter text-[15px] leading-[1.75] text-gray-600">
+              <p className="mt-6 font-fraunces text-[18px] font-medium italic leading-snug text-navy-900 sm:text-[20px]">
+                Teaching Accounting isn&apos;t just my profession, it&apos;s
+                something I genuinely enjoy.
+              </p>
+              <div className="mt-5 space-y-4 font-inter text-[15px] leading-[1.75] text-gray-600">
                 <p>
-                  I am based at {SITE.address}, where I work with students
-                  face-to-face and online. Over the years I have built a
-                  reputation for explaining difficult ideas — double entry,
-                  depreciation, financial statements and ratio analysis — in
-                  plain language that still satisfies the mark scheme.
+                  I&apos;m based at {SITE.address}, where I teach Accounting to
+                  students in the classroom and online. If you&apos;re looking
+                  for an online O Levels Accounting tutor in Karachi, my live
+                  classes make it easy to learn from anywhere. You&apos;ll
+                  receive the same support as students attending in person.
                 </p>
                 <p>
-                  Thousands of students have passed through my classes, from
-                  first-time O Level learners to A2 candidates sitting Paper 3
-                  and Paper 4. Many return for the next stage of the syllabus;
-                  others refer friends and siblings. That trust is the result of
-                  consistent preparation, honest feedback, and lessons that
-                  respect your time.
+                  Over the years, I&apos;ve helped students work through topics
+                  that often seem difficult at first, from double entry and
+                  depreciation to financial statements and ratio analysis. My
+                  aim is always to explain these concepts in a way that&apos;s
+                  easy to understand without losing sight of what the exam
+                  requires.
                 </p>
                 <p>
-                  Whether you are starting Accounting for the first time or
-                  pushing for an A or A* in your final sitting, my goal is the
-                  same: give you a clear mental model of the subject, train your
-                  exam technique, and support you until you walk into the hall
-                  feeling ready.
+                  I&apos;ve had the privilege of teaching thousands of students,
+                  from those taking O Level Accounting for the first time to A2
+                  students preparing for their final papers. Many continue
+                  learning with me as they progress through the syllabus, while
+                  others come through recommendations from friends, siblings,
+                  and former students. I see that as a reflection of the trust
+                  we&apos;ve built together.
+                </p>
+                <p>
+                  Whether you&apos;re new to Accounting or working towards an A
+                  or A*, my approach stays the same. I&apos;ll help you
+                  understand the concepts, improve your exam technique, and
+                  support you throughout your preparation so you can walk into
+                  your exam with confidence.
                 </p>
               </div>
             </div>
@@ -111,35 +123,29 @@ export default function AboutPage() {
         </div>
       </AnimateSection>
 
-      {/* Philosophy pull-quote */}
-      <AnimateSection index={2} className="bg-cream-50 py-16 lg:py-24">
-        <div className="container-x">
-          <SirShehrozTagline />
-        </div>
-      </AnimateSection>
+      {/* Co-Founder — Alpha Education Network */}
+      <AboutLeadership />
 
       {/* Everything in one place — Orb-Ed ecosystem */}
       <AnimateSection index={3} className="bg-grid-white py-20 lg:py-24">
         <div className="container-x">
           <SectionHeader
-            eyebrow="Everything In One Place"
+            eyebrow="Everything You Need, All in One Place"
             title={
               <>
                 One platform.
                 <br />
-                <span className="italic text-gold-500">Every resource.</span>
+                <span className="italic text-gold-500">Complete support.</span>
               </>
             }
           />
           <p className="mx-auto mt-4 max-w-xl text-center font-inter text-[15px] leading-relaxed text-gray-500">
-            Recorded lectures, notes, live sessions and past papers — all
-            connected through Orb-Ed, so nothing slips through the cracks.
+            You can access your recorded lectures, live classes, study notes,
+            and past papers in one organized space on Orb-Ed.
           </p>
           <AboutEcosystem />
         </div>
       </AnimateSection>
-
-      <AboutTestimonials />
 
       <AboutCTA />
     </>

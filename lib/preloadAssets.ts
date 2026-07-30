@@ -1,32 +1,21 @@
-import { HERO_BANNER_SRCS } from "@/lib/heroBanners";
 import { REGISTRATION_BANNER } from "@/lib/marketingImages";
 import { getBlogPreviewPosts } from "@/data/posts";
 import { getStudentGalleryPreview } from "@/lib/studentGallery";
 
 /** Images warmed on first paint — header, hero, affiliations, about teasers. */
 const STATIC_IMAGES = [
-  "/images/logo.png",
+  "/images/logo.webp",
+  "/images/aboutpage2.webp",
   REGISTRATION_BANNER.src,
-  ...HERO_BANNER_SRCS,
-  "/images/thumbnail.png",
-  "/images/orbed.png",
-  "/images/avatar.png",
-  "/images/teacher-about.jpeg",
-  "/images/aboutpage2.png",
-  "/images/mentoring.png",
-  "/images/behindsllybus.png",
-  "/images/alpha-college.png",
-  "/images/kashans-academy.png",
+  "/images/orbed.webp",
+  "/images/avatar.webp",
+  "/images/aboutpage2.webp",
+  "/images/alpha-college.webp",
+  "/images/kashans-academy.webp",
 ] as const;
 
 /** Homepage videos — preloaded during the opening loader. */
-const HOME_VIDEOS = [
-  "/videos/glimpse1.mp4",
-  "/videos/glimpse2.mp4",
-  "/videos/glimpse3.mp4",
-  "/videos/glimpse4.mp4",
-  "/videos/glimpse5.mp4",
-] as const;
+const HOME_VIDEOS: readonly string[] = [];
 
 export type PreloadManifest = {
   images: string[];

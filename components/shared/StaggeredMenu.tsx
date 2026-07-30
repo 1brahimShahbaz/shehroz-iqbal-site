@@ -97,7 +97,7 @@ export default function StaggeredMenu({
   displaySocials = true,
   displayItemNumbering = true,
   className,
-  logoUrl = "/images/logo.png",
+  logoUrl = "/images/logo.webp",
   hideLogo = false,
   simpleToggleIcon = false,
   menuButtonColor = "#0A2740",
@@ -649,7 +649,7 @@ export default function StaggeredMenu({
 
           {displaySocials && socialItems.length > 0 ? (
             <div className="sm-socials" aria-label="Social links">
-              <h3 className="sm-socials-title">Connect</h3>
+              <p className="sm-socials-title">Connect</p>
               <ul className="sm-socials-list" role="list">
                 {socialItems.map((s, i) => (
                   <li key={`${s.label}-${i}`} className="sm-socials-item">

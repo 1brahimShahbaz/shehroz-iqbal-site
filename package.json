@@ -16,6 +16,7 @@
     "lint": "eslint app components lib data --ext .ts,.tsx"
   },
   "dependencies": {
+    "@google/model-viewer": "^4.3.1",
     "@hookform/resolvers": "^5.2.2",
     "@next/third-parties": "14.2.35",
     "class-variance-authority": "^0.7.1",
@@ -28,7 +29,6 @@
     "next": "^16.2.6",
     "next-seo": "^7.2.0",
     "next-sitemap": "^4.2.3",
-    "pdfjs-dist": "^5.7.284",
     "react": "^18",
     "react-countup": "^6.5.3",
     "react-dom": "^18",
@@ -36,6 +36,7 @@
     "react-intersection-observer": "^10.0.3",
     "sharp": "^0.34.5",
     "tailwind-merge": "^3.6.0",
+    "three": "^0.183.2",
     "zod": "^4.4.3"
   },
   "devDependencies": {

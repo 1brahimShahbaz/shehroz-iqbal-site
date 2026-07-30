@@ -14,7 +14,7 @@ const NUMBERED_EXT = ["jpg", "jpeg", "png", "webp", "heic"] as const;
 
 /** Logos, avatars, banners, blog covers, and teacher portraits — not student gallery. */
 const SKIP_PATTERN =
-  /^(orbed|alpha-college|kashans|thumbnail|avatar|teacher-|logo|zm3|banner\d|aboutpage2)/i;
+  /^(orbed|alpha-college|kashans|aen-logo|thumbnail|avatar|teacher-|logo|zm3|banner\d|shehroz-sir-website-banner|registrationbanner|aboutpage2)/i;
 
 /** Blog hero images (stock covers) live under `public/images/blog/` — for posts only. */
 function shouldSkipPath(relPath: string): boolean {

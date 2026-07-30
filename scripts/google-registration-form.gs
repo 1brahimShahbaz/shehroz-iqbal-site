@@ -17,7 +17,7 @@
 
 const SPREADSHEET_ID = "11Be-vKFuXKHImsV-1pIYz7Q6ie7F8Z2GBvW-YYrn_Ro";
 const SHEET_NAME = "Registrations";
-const NOTIFY_EMAIL = "hi.zarakmushtaq@gmail.com"; // set "" to disable email alerts
+const NOTIFY_EMAIL = "shehroz420si@gmail.com"; // set "" to disable email alerts
 
 function doPost(e) {
   try {
@@ -30,7 +30,8 @@ function doPost(e) {
         "Timestamp",
         "First Name",
         "Last Name",
-        "Grade",
+        "Level",
+        "Subject",
         "Phone",
         "Email",
       ]);
@@ -41,6 +42,7 @@ function doPost(e) {
       data.firstName || "",
       data.lastName || "",
       data.grade || "",
+      data.subject || "",
       data.phone || "",
       data.email || "",
     ]);
@@ -57,7 +59,8 @@ function doPost(e) {
         body:
           "First name: " + (data.firstName || "") + "\n" +
           "Last name: " + (data.lastName || "") + "\n" +
-          "Grade: " + (data.grade || "") + "\n" +
+          "Level: " + (data.grade || "") + "\n" +
+          "Subject: " + (data.subject || "") + "\n" +
           "Phone: " + (data.phone || "") + "\n" +
           "Email: " + (data.email || ""),
       });

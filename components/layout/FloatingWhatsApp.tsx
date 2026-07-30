@@ -1,21 +1,17 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
 import { MessageCircle } from "lucide-react";
 import { whatsappLink } from "@/lib/constants";
 import { trackEvent } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 
 export function FloatingWhatsApp() {
-  const pathname = usePathname();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
   }, []);
-
-  if (pathname === "/notes") return null;
 
   return (
     <a

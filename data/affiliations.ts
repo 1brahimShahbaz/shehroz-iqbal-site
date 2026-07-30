@@ -11,19 +11,19 @@ export type Affiliation = {
 export const affiliations: Affiliation[] = [
   {
     name: "Kashan's Academy",
-    logoSrc: "/images/kashans-academy.png",
+    logoSrc: "/images/kashans-academy.webp",
     href: "https://www.facebook.com/KashansAcademy/",
     scale: 1.15,
   },
   {
     name: "Alpha College",
-    logoSrc: "/images/alpha-college.png",
+    logoSrc: "/images/alpha-college.webp",
     href: "https://college.alpha.edu.pk/",
     scale: 1.28,
   },
   {
     name: "Orb-Ed",
-    logoSrc: "/images/orbed.png",
+    logoSrc: "/images/orbed.webp",
     href: "https://orb-ed.pk/",
     scale: 1.12,
   },

@@ -44,7 +44,7 @@ export function Logo({
       )}
     >
       <Image
-        src="/images/logo.png"
+        src="/images/logo.webp"
         alt="Shehroz Iqbal"
         width={240}
         height={240}

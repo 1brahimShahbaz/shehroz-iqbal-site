@@ -21,11 +21,11 @@ export function BlogPreview({ posts }: Props) {
           eyebrow="The blog"
           title={
             <>
-              Read some of my{" "}
-              <span className="italic text-navy-900">blogs.</span>
+              Explore the{" "}
+              <span className="italic text-navy-900">blog.</span>
             </>
           }
-          subtitle="Study guides, exam technique, and concept explainers for CAIE and Edexcel Accounting."
+          subtitle="Practical study advice, exam strategies, and Accounting concepts explained with clarity."
         />
 
         <AnimateStagger className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">

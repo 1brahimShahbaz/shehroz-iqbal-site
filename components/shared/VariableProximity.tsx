@@ -118,8 +118,11 @@ const VariableProximity = forwardRef<HTMLSpanElement, VariableProximityProps>(
       }));
     }, [fromFontVariationSettings, toFontVariationSettings]);
 
-    const calculateDistance = (x1: number, y1: number, x2: number, y2: number) =>
-      Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
+    const calculateDistance = useCallback(
+      (x1: number, y1: number, x2: number, y2: number) =>
+        Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2),
+      []
+    );
 
     const calculateFalloff = useCallback(
       (distance: number) => {

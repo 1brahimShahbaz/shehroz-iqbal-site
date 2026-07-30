@@ -13,12 +13,14 @@ export default function robots(): MetadataRoute.Robots {
         disallow: [
           "/api/",
           "/studio/",
-          // Raw PDF library paths (preview-only assets under public/notes/)
-          "/notes/A2",
-          "/notes/As",
-          "/notes/olevel",
         ],
       },
+      // Explicitly welcome AI search / answer engines.
+      { userAgent: "OAI-SearchBot", allow: "/" },
+      { userAgent: "ChatGPT-User", allow: "/" },
+      { userAgent: "GPTBot", allow: "/" },
+      { userAgent: "ClaudeBot", allow: "/" },
+      { userAgent: "PerplexityBot", allow: "/" },
     ],
     sitemap: `${SITE.url}/sitemap.xml`,
   };

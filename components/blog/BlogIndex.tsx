@@ -134,7 +134,7 @@ export function BlogIndex() {
               <div className="mt-6 flex items-center gap-3">
                 <div className="relative h-10 w-10 overflow-hidden rounded-full ring-2 ring-gold-500/30">
                   <Image
-                    src="/images/avatar.png"
+                    src="/images/avatar.webp"
                     alt="Sir Shehroz Iqbal, CAIE Accounting tutor"
                     width={40}
                     height={40}

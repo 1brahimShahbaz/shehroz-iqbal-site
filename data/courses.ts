@@ -15,6 +15,9 @@ export type CourseContent = {
   heroImage: string;
   ctaTitle: string;
   ctaSubhead: string;
+  /** Optional overrides for the "Course Syllabus" section (template holds the defaults). */
+  syllabusHeading?: string;
+  syllabusIntro?: string;
 };
 
 export const courses: Record<CourseLevel, CourseContent> = {
@@ -29,14 +32,14 @@ export const courses: Record<CourseLevel, CourseContent> = {
     start: "Oct 2026",
     headline: "AS Level Accounting with",
     subhead:
-      "Master double entry, financial statements and costing. Walk into your exam confident.",
+      "Learn double entry, financial statements, and costing through clear explanations and practical exam-focused learning.",
     description:
       "A complete 9-month walkthrough of the CAIE 9706 AS Level Accounting syllabus — from double entry and the accounting system to depreciation, reconciliations, financial statements, ratio analysis and cost accounting. Every technique is built up step by step with worked questions.",
     heroImage:
       "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1400&q=80",
-    ctaTitle: "Ready to start AS Accounting?",
+    ctaTitle: "Start Your AS Level Preparation",
     ctaSubhead:
-      "Join the Oct/Nov 2026 session — limited seats. Live classes, recorded backups and a full notes pack.",
+      "Join the Oct/Nov 2026 batch and study with live classes, recorded lectures, organized notes, and ongoing support throughout your preparation.",
   },
   A2: {
     level: "A2",
@@ -49,14 +52,17 @@ export const courses: Record<CourseLevel, CourseContent> = {
     start: "Oct 2026",
     headline: "A2 Level Accounting with",
     subhead:
-      "Sharpen your analysis. Drill published accounts, cash flows and standard costing. Convert understanding into A* marks.",
+      "Study published accounts, cash flow statements, and standard costing with a clear, structured approach with A2 level course online that prepares you for the CAIE examination.",
     description:
-      "Advanced financial accounting — partnership changes, limited company published accounts, statements of cash flows and business purchase — plus A Level cost and management accounting including standard costing, budgeting and investment appraisal. Built around CAIE's published mark schemes with weekly past-paper marking.",
+      "The notes cover the complete CAIE 9706 A2 Level syllabus, from partnership changes and published accounts to statements of cash flows, business purchase, budgeting, standard costing, and investment appraisal. Every topic is explained clearly with worked examples and reinforced through past paper questions.",
     heroImage:
       "https://images.unsplash.com/photo-1543286386-2e659306cd6c?auto=format&fit=crop&w=1400&q=80",
-    ctaTitle: "Ready to push from A to A*?",
+    ctaTitle: "Join the A2 Level Accounting Class",
     ctaSubhead:
-      "Join the Oct/Nov 2026 A2 session — small batches, intensive past-paper drilling.",
+      "Enroll for the Oct/Nov 2026 session and learn through focused lessons, regular past paper practice, and guidance throughout your exam preparation.",
+    syllabusHeading: "Watch a sample lecture before you register.",
+    syllabusIntro:
+      "Free A2 Level (CAIE 9706) lessons are available below to help you explore the A2 level accounting course before enrolling. The complete course is available on Orb-Ed.",
   },
   O: {
     level: "O",
@@ -69,13 +75,16 @@ export const courses: Record<CourseLevel, CourseContent> = {
     start: "Oct 2026",
     headline: "O Level Accounting with",
     subhead:
-      "Lay the right foundations early. Build the habits that produce A* students at A Level.",
+      "Learn the fundamentals of accounting course for O'level, strengthen your concepts, and prepare with confidence for your exams.",
     description:
-      "A patient, structured introduction to accounting for students sitting CAIE 7707 — from the accounting equation and double entry to financial statements for sole traders, partnerships, limited companies and clubs. Every topic includes worked examples and printable revision sheets.",
+      "These notes cover the complete CAIE 7707 syllabus, starting with the accounting equation and double entry before moving on to financial statements for sole traders, partnerships, limited companies, and clubs. Each topic includes worked examples and revision sheets to support your learning.",
     heroImage:
       "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=1400&q=80",
-    ctaTitle: "Ready to start O Level Accounting?",
+    ctaTitle: "Join the Oct/Nov 2026 O Level Batch",
     ctaSubhead:
-      "Join the Oct/Nov 2026 O Level batch — friendly pace, strong fundamentals.",
+      "Join the Oct/Nov 2026 batch and learn Accounting with a clear, structured approach that helps you build strong concepts from the start.",
+    syllabusHeading: "Watch a lesson before joining.",
+    syllabusIntro:
+      "Free sample lectures from the O Level (CAIE 7707) are available below. If you enjoy the teaching style, you can continue with the complete O levels accounting course online on Orb-Ed.",
   },
 };

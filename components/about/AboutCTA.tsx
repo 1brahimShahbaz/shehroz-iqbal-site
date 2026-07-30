@@ -36,11 +36,11 @@ export function AboutCTA() {
           Oct / Nov 2026 — Enrolment open
         </p>
         <h2 className="mx-auto mt-4 max-w-2xl font-fraunces text-[30px] font-semibold leading-tight text-white sm:text-[42px]">
-          Ready to turn Accounting into your best subject?
+          Start Your Preparation with Confidence!
         </h2>
         <p className="mx-auto mt-4 max-w-xl text-[15px] leading-relaxed text-white/70">
-          Join hundreds of students who moved from confusion to confident A and
-          A* grades. Seats for each series are limited.
+          Join students across Pakistan learning through live classes, recorded
+          lectures, and focused exam preparation.
         </p>
 
         <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">

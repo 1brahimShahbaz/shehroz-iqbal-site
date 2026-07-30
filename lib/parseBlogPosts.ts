@@ -6,7 +6,7 @@ const BLOG_MD = path.join(process.cwd(), "blog-posts.md");
 
 /** Topic hero images in `public/images/blog/` (see `scripts/download-blog-covers.mjs`). */
 function coverForSlug(slug: string): string {
-  return `/images/blog/${slug}.jpg`;
+  return `/images/blog/${slug}.webp`;
 }
 
 type BodyBlock = BlogPost["body"][number];

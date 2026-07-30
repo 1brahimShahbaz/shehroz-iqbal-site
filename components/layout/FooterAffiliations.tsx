@@ -22,12 +22,12 @@ export function FooterAffiliations() {
               id="footer-affiliations-heading"
               className="mt-3 font-fraunces text-[26px] font-semibold leading-[1.15] tracking-[-0.01em] text-white sm:text-[34px]"
             >
-              Trusted by the institutions{" "}
-              <span className="italic text-gold-500">that set the standard.</span>
+              Partnering with institutions{" "}
+              <span className="italic text-gold-500">that inspire excellence.</span>
             </h2>
             <p className="mx-auto mt-4 max-w-lg font-inter text-sm leading-relaxed text-white/60 lg:mx-0">
-              Teaching and learning in partnership with leading schools and
-              platforms across Pakistan.
+              Working alongside respected schools and learning platforms to
+              deliver quality Accounting education across Pakistan.
             </p>
 
             <p className="mt-6 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-wider2 lg:justify-start">

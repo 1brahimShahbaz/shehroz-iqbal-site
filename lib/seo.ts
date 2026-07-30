@@ -130,7 +130,8 @@ export function buildMetadata(seo: PageSEO = {}): Metadata {
 
   const googleVerification =
     process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ||
-    process.env.GOOGLE_SITE_VERIFICATION;
+    process.env.GOOGLE_SITE_VERIFICATION ||
+    "VjPEkdwNH2LNYvWCuunomzRNcPX0NrABQ9hnvdkt2gY";
 
   return {
     metadataBase: getMetadataBase(),
@@ -214,11 +215,11 @@ export const personJsonLd = {
   givenName: "Shehroz",
   familyName: "Iqbal",
   honorificPrefix: "Sir",
-  jobTitle: "Accounting Tutor",
+  jobTitle: "Teacher/Tutor",
   description:
     "A Level Accounting tutor in Karachi, Pakistan. Teaching CAIE 9706, Edexcel Accounting, AS Level, A2 Level and O Level Accounting since 2011. Helping students across Pakistan and internationally achieve top grades.",
   url: SITE.url,
-  image: absoluteImageUrl(DEFAULT_OG_IMAGE),
+  image: absoluteImageUrl("/images/aboutpage2.webp"),
   email: SITE.email,
   telephone: SITE.phone,
   address: {
@@ -246,7 +247,7 @@ export const personJsonLd = {
     "Cost & Management Accounting",
     "Accounting Tuition Karachi",
   ],
-  worksFor: { "@id": orgId },
+  worksFor: { "@type": "Organization", name: "Alpha College" },
 };
 
 export const localBusinessJsonLd = {
@@ -308,9 +309,9 @@ export const localBusinessJsonLd = {
         "@type": "Offer",
         itemOffered: {
           "@type": "Course",
-          name: "O Level Accounting (CAIE 7707)",
+          name: "O Level & IGCSE Accounting (CAIE 7707 & 0452)",
           description:
-            "O Level Accounting tuition for CAIE 7707 — strong foundations in micro and macro fundamentals.",
+            "O Level and IGCSE Accounting tuition for CAIE 7707 and 0452 — strong foundations in double entry, financial statements and the accounting system.",
           url: `${SITE.url}/courses/o-level`,
           provider: { "@id": personId },
         },
@@ -328,11 +329,16 @@ export const websiteJsonLd = {
   "@type": "WebSite",
   "@id": websiteId,
   url: SITE.url,
-  name: DEFAULT_TITLE,
-  alternateName: [SITE.personName, SITE.name, SITE.domain],
+  name: SITE.personName,
+  alternateName: [SITE.name, DEFAULT_TITLE, SITE.domain],
   description: SITE.description,
   inLanguage: "en",
   publisher: { "@id": personId },
+  potentialAction: {
+    "@type": "SearchAction",
+    target: `${SITE.url}/?s={search_term_string}`,
+    "query-input": "required name=search_term_string",
+  },
 };
 
 /** Combined graph for every page — helps Google associate the site with Shehroz Iqbal. */
@@ -358,9 +364,9 @@ export function courseJsonLd(level: "AS" | "A2" | "O") {
       path: "/courses/a2-level",
     },
     O: {
-      name: "O Level Accounting",
+      name: "O Level & IGCSE Accounting",
       code: "7707",
-      desc: "Cambridge O Level Accounting (7707) with Shehroz Iqbal — tuition in Karachi and online, strong foundations in micro and macro fundamentals.",
+      desc: "Cambridge O Level (7707) and IGCSE (0452) Accounting with Shehroz Iqbal — tuition in Karachi and online, strong foundations in double entry, financial statements and the accounting system.",
       path: "/courses/o-level",
     },
   };
@@ -386,27 +392,32 @@ export const HOME_FAQS = [
   {
     question: "Who is the best A Level Accounting tutor in Karachi?",
     answer:
-      "Shehroz Iqbal is widely regarded as one of the best A Level Accounting tutors in Karachi, Pakistan. With over 13 years of teaching CAIE Accounting 9706 and Edexcel Accounting, he has helped hundreds of students achieve A and A* grades. Classes are available in-person in Karachi and online across Pakistan.",
+      "With over 13 years of teaching experience, Sir Shehroz Iqbal is recognized by many students and parents as one of the best A Level Accounting tutors in Karachi. His concept-based teaching approach, structured exam preparation, and consistent student results have made him a trusted choice for CAIE and Edexcel Accounting.",
   },
   {
-    question: "Where can I find an A Level Accounting tutor in Karachi?",
+    question: "Does Sir Shehroz Iqbal teach both O Level and A Level Accounting?",
     answer:
-      "Shehroz Iqbal offers A Level Accounting tuition in Karachi — in-person at Alpha College, P.E.C.H.S Block 6 — as well as live online classes. Visit shehroziqbal.com to register for AS Level, A2 Level, or O Level Accounting courses for CAIE and Edexcel.",
+      "Yes. Sir Shehroz Iqbal teaches both CAIE O Level (7707) and A Level (9706) Accounting. Students looking for A or O Levels Accounts teachers in Karachi can join his classes in Karachi or attend live online sessions from anywhere in Pakistan.",
   },
   {
     question: "Does Shehroz Iqbal teach online Accounting?",
     answer:
-      "Yes. Shehroz Iqbal offers live online Accounting tuition for students across Pakistan — Karachi, Lahore, Islamabad — and internationally. All courses cover the full CAIE 9706 or Edexcel Accounting syllabus, with recorded backups and WhatsApp doubt support.",
+      "Yes. Shehroz Iqbal offers live online Accounting tuition for students across Pakistan — Karachi, Lahore, Islamabad — and internationally. Online students receive the same support as those attending in person, with recorded backups and WhatsApp doubt support covering the full CAIE 9706 or Edexcel Accounting syllabus.",
   },
   {
-    question: "What Accounting courses does Shehroz Iqbal teach?",
+    question: "What Accounting courses does Shehroz Iqbal offer?",
     answer:
-      "Shehroz Iqbal teaches O Level Accounting (CAIE 7707), AS Level Accounting (CAIE 9706), A2 Level Accounting (CAIE 9706), and Edexcel A Level Accounting. Courses are available for the May/June and October/November examination series.",
+      "Courses are available for O Level Accounting (CAIE 7707), AS Level Accounting (CAIE 9706), A2 Level Accounting (CAIE 9706), and Edexcel A Level Accounting. Each program includes live classes, recorded lectures, study notes, and regular past paper practice for both May/June and Oct/Nov examinations.",
   },
   {
-    question: "How do I register for Accounting tuition with Shehroz Iqbal?",
+    question: "How can I register for Accounting classes?",
     answer:
-      "You can register for Accounting tuition via the Courses pages at shehroziqbal.com or reach out directly on WhatsApp. Spots for each examination series are limited.",
+      "You can register through the website or contact Sir Shehroz Iqbal directly on WhatsApp for guidance on enrolment, course details, and upcoming batches. Early registration is recommended as seats are limited.",
+  },
+  {
+    question: "Why do students choose Sir Shehroz Iqbal?",
+    answer:
+      "Known as one of the best accounts teachers in Karachi, Sir Shehroz Iqbal combines over 13 years of teaching experience with a practical, exam-focused approach that helps students develop confidence and achieve outstanding results.",
   },
 ] as const;
 

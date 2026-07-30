@@ -36,9 +36,9 @@ export function Header() {
       ? pathname === "/"
       : pathname === href || pathname.startsWith(href + "/");
 
-  // Only the home page has a full-bleed hero image sitting *under* the header,
-  // so light-on-image styling applies there until the user scrolls.
-  const overHero = pathname === "/" && !scrolled;
+  // At the top of every page the header is a solid navy bar with light-on-dark
+  // styling; once the user scrolls it transitions to the frosted-white header.
+  const overHero = !scrolled;
 
   const navLinkClass = (active: boolean) =>
     cn(
@@ -69,7 +69,11 @@ export function Header() {
         animate={{
           y: 0,
           opacity: 1,
-          backgroundColor: scrolled ? "rgba(255,255,255,0.82)" : "rgba(255,255,255,0)",
+          backgroundColor: scrolled
+            ? "rgba(255,255,255,0.82)"
+            : overHero
+              ? "rgba(10,39,64,1)"
+              : "rgba(255,255,255,0)",
           boxShadow: scrolled
             ? "0 6px 28px rgba(10,39,64,0.10)"
             : "0 0 0 rgba(10,39,64,0)",
@@ -82,7 +86,11 @@ export function Header() {
         }}
         className={cn(
           "fixed inset-x-0 top-0 z-40 border-b",
-          scrolled ? "border-gray-200/70" : "border-transparent"
+          scrolled
+            ? "border-gray-200/70"
+            : overHero
+              ? "border-white/10"
+              : "border-transparent"
         )}
       >
         {/* Brand accent hairline — fades in with the solid background */}
@@ -90,7 +98,7 @@ export function Header() {
           aria-hidden
           className={cn(
             "absolute inset-x-0 top-0 h-[3px] bg-gradient-to-r from-navy-900 via-gold-500 to-navy-900 transition-opacity duration-500",
-            scrolled ? "opacity-100" : "opacity-0"
+            scrolled || overHero ? "opacity-100" : "opacity-0"
           )}
         />
 
@@ -136,7 +144,7 @@ export function Header() {
                       />
                       {underline(isActive(item.href))}
                     </button>
-                    <div className="pointer-events-none invisible absolute left-1/2 top-[calc(100%+0.75rem)] z-50 w-56 -translate-x-1/2 translate-y-1 opacity-0 transition-all duration-300 ease-smooth group-hover/nav:pointer-events-auto group-hover/nav:visible group-hover/nav:translate-y-0 group-hover/nav:opacity-100">
+                    <div className="pointer-events-none invisible absolute left-1/2 top-full z-50 w-56 -translate-x-1/2 translate-y-1 pt-3 opacity-0 transition-all duration-300 ease-smooth group-hover/nav:pointer-events-auto group-hover/nav:visible group-hover/nav:translate-y-0 group-hover/nav:opacity-100">
                       <div className="overflow-hidden rounded-2xl border border-gray-200/90 bg-white/95 shadow-card-hover ring-1 ring-navy-900/5 backdrop-blur-xl">
                         <div className="border-b border-gray-100 bg-navy-900 px-4 py-2.5">
                           <p className="font-inter text-[11px] font-semibold uppercase tracking-wider2 text-gold-500">

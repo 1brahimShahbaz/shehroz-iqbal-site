@@ -7,6 +7,7 @@ import { z } from "zod";
 import { ArrowRight, CheckCircle2, Loader2 } from "lucide-react";
 import {
   REGISTER_GRADES,
+  REGISTER_SUBJECTS,
   REGISTRATION_ENDPOINT,
 } from "@/lib/constants";
 import { trackEvent } from "@/lib/analytics";
@@ -17,6 +18,9 @@ const schema = z.object({
   lastName: z.string().trim().min(1, "Last name is required"),
   grade: z.enum(REGISTER_GRADES, {
     message: "Please select your grade",
+  }),
+  subject: z.enum(REGISTER_SUBJECTS, {
+    message: "Please select a subject",
   }),
   phone: z
     .string()
@@ -77,12 +81,16 @@ export function RegistrationForm() {
           firstName: values.firstName,
           lastName: values.lastName,
           grade: values.grade,
+          subject: values.subject,
           phone: values.phone,
           email: values.email,
         }),
       });
 
-      trackEvent("register_submit", { level: values.grade });
+      trackEvent("register_submit", {
+        level: values.grade,
+        subject: values.subject,
+      });
       setStatus("success");
       reset();
     } catch {
@@ -152,6 +160,26 @@ export function RegistrationForm() {
             className={cn("input-field", errors.lastName && fieldErrorClass)}
             {...register("lastName")}
           />
+        </Field>
+
+        <Field label="Subject" error={errors.subject?.message}>
+          <select
+            defaultValue=""
+            className={cn(
+              "input-field appearance-none",
+              errors.subject && fieldErrorClass
+            )}
+            {...register("subject")}
+          >
+            <option value="" disabled>
+              Select a subject
+            </option>
+            {REGISTER_SUBJECTS.map((s) => (
+              <option key={s} value={s}>
+                {s}
+              </option>
+            ))}
+          </select>
         </Field>
 
         <Field label="Grade" error={errors.grade?.message}>

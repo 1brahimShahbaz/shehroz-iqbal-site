@@ -21,11 +21,11 @@ export function ExtraCreditPreview({ photos }: Props) {
           eyebrow="Extra credit"
           title={
             <>
-              Life outside the{" "}
+              Beyond the{" "}
               <span className="italic text-navy-900">classroom.</span>
             </>
           }
-          subtitle="Photos from student moments, and the community around Sir Shehroz's Accounting classes."
+          subtitle="Pictures of the moments, milestones, and memories shared throughout the journey."
         />
 
         <AnimateStagger className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 lg:gap-5">

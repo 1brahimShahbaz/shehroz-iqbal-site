@@ -5,6 +5,7 @@
 import fs from "fs";
 import path from "path";
 import https from "https";
+import sharp from "sharp";
 
 const OUT = path.join(process.cwd(), "public", "images", "blog");
 
@@ -73,18 +74,24 @@ fs.mkdirSync(OUT, { recursive: true });
 
 let ok = 0;
 for (const [file, url] of Object.entries(COVERS)) {
-  const dest = path.join(OUT, file);
+  // Covers are served as WebP (modern format) — convert on download.
+  const webpName = file.replace(/\.jpe?g$/i, ".webp");
+  const dest = path.join(OUT, webpName);
   if (fs.existsSync(dest) && fs.statSync(dest).size > 5000) {
-    console.log(`Skip ${file} (already exists)`);
+    console.log(`Skip ${webpName} (already exists)`);
     ok++;
     continue;
   }
-  process.stdout.write(`Downloading ${file}... `);
+  process.stdout.write(`Downloading ${webpName}... `);
   try {
     const buf = await download(url);
     if (buf.length < 5000) throw new Error("file too small");
-    fs.writeFileSync(dest, buf);
-    console.log(`OK (${Math.round(buf.length / 1024)} KB)`);
+    const webp = await sharp(buf)
+      .resize(1200, 630, { fit: "cover" })
+      .webp({ quality: 78, effort: 5 })
+      .toBuffer();
+    fs.writeFileSync(dest, webp);
+    console.log(`OK (${Math.round(webp.length / 1024)} KB)`);
     ok++;
   } catch (e) {
     console.log(`FAILED — ${e.message}`);

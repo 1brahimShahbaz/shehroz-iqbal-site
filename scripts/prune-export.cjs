@@ -9,7 +9,7 @@ const path = require("path");
 const OUT = path.join(process.cwd(), "out");
 
 /** Same-named `.html` routes that also ship a `public/<name>/` asset folder (must not be pruned). */
-const KEEP_ASSET_DIRS = new Set(["notes"]);
+const KEEP_ASSET_DIRS = new Set();
 
 function hasPublicHtml(dirPath) {
   if (!fs.existsSync(dirPath)) return false;

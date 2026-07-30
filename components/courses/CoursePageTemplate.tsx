@@ -1,6 +1,5 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ChevronRight } from "lucide-react";
@@ -11,28 +10,15 @@ import { SectionEyebrow } from "@/components/shared/SectionEyebrow";
 import { RegistrationBanner } from "@/components/home/RegistrationBanner";
 import type { CourseContent } from "@/data/courses";
 import { syllabusByLevel } from "@/data/syllabi";
-import type { NoteGroup } from "@/lib/notesTypes";
-import { countNoteFiles } from "@/lib/notesTypes";
 import { SITE, CTA_LABELS } from "@/lib/constants";
 import { trackEvent } from "@/lib/analytics";
 
-const NotesExplorer = dynamic(
-  () =>
-    import("@/components/notes/NotesExplorer").then((mod) => ({
-      default: mod.NotesExplorer,
-    })),
-  { ssr: false }
-);
-
 export function CoursePageTemplate({
   course,
-  studyNoteGroups,
 }: {
   course: CourseContent;
-  studyNoteGroups: NoteGroup[];
 }) {
   const sections = syllabusByLevel[course.level];
-  const noteCount = countNoteFiles(studyNoteGroups);
 
   return (
     <>
@@ -120,34 +106,20 @@ export function CoursePageTemplate({
           <div className="max-w-2xl">
             <SectionEyebrow>Course Syllabus</SectionEyebrow>
             <h2 className="mt-3 font-fraunces text-[32px] font-semibold leading-tight text-navy-900 sm:text-[40px]">
-              Try a lecture before you register.
+              {course.syllabusHeading ?? "Try a lecture before you register."}
             </h2>
             <p className="mt-3 text-[16px] text-gray-500">
-              Sample lectures from the {course.badgeLabel} ({course.syllabus})
-              syllabus are free to watch below. The full course unlocks on Orbed.
+              {course.syllabusIntro ?? (
+                <>
+                  Free {course.badgeLabel} ({course.syllabus}) lessons are
+                  available below to help you explore the course before
+                  enrolling. The complete course is available on Orb-Ed.
+                </>
+              )}
             </p>
           </div>
           <div className="mt-12">
             <SyllabusGrid sections={sections} />
-          </div>
-        </div>
-      </AnimateSection>
-
-      <AnimateSection index={3} className="bg-grid-white py-20 lg:py-24">
-        <div className="container-x">
-          <div className="max-w-2xl">
-            <SectionEyebrow>Sample Notes</SectionEyebrow>
-            <h2 className="mt-3 font-fraunces text-[32px] font-semibold leading-tight text-navy-900 sm:text-[40px]">
-              Notes built for {course.badgeLabel} students.
-            </h2>
-            <p className="mt-3 text-[16px] text-gray-500">
-              {noteCount > 0
-                ? `${noteCount} PDF${noteCount === 1 ? "" : "s"} available to preview — in-browser only, not downloadable.`
-                : course.description}
-            </p>
-          </div>
-          <div className="mt-12 max-w-4xl">
-            <NotesExplorer groups={studyNoteGroups} />
           </div>
         </div>
       </AnimateSection>

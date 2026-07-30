@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion, useReducedMotion, type Variants } from "framer-motion";
 import { ArrowRight, MessageCircle, Sparkles, Award } from "lucide-react";
 import { AmbientOrbs } from "@/components/shared/AmbientOrbs";
+import { Logo3D } from "@/components/shared/Logo3D";
 import { SITE } from "@/lib/constants";
 import { EASE_OUT } from "@/lib/motion";
 
@@ -19,9 +20,9 @@ const item: Variants = {
 };
 
 const paragraphs = [
-  "For more than fifteen years, I have taught A Level and O Level Accounting in Karachi and online to ambitious students across Pakistan — helping them move from confusion to confidence in CAIE and Edexcel examinations.",
-  "My philosophy is simple: understand the logic behind every transaction and financial statement first. Once the fundamentals are clear, ledgers, statements and analysis fall into place — and strong grades follow naturally.",
-  "I teach with patience and structure. Every topic is broken into steps: concept, worked example, practice, and application to unseen exam scenarios — exactly what examiners reward.",
+  "For over 13 years, I've been teaching O Level and A Level Accounting to students in Karachi and across Pakistan. As one of the experienced O & A Level Accounting tutors, I've worked with students with different learning goals. My focus has always been to help them understand Accounting in a way that actually makes sense.",
+  "I've always believed there's no point in memorizing answers if the students don't understand the idea behind them. That's why I focus on explaining concepts first. Once the basics are clear, students usually find it much easier to solve questions and tackle past papers with confidence.",
+  "My classes are practical and easy to follow. We learn each topic step by step, solve questions together, and spend plenty of time practicing exam-style questions. The goal isn't just to prepare for the next paper, it's to make sure you understand what you're doing and why.",
 ];
 
 export function AboutHero() {
@@ -89,7 +90,7 @@ export function AboutHero() {
 
           <motion.div {...child} className="mt-8 flex flex-wrap items-center gap-3">
             <Link href="/courses/as-level" className="btn-primary text-sm">
-              See my courses
+              Explore my courses
               <ArrowRight className="h-4 w-4" strokeWidth={2} />
             </Link>
             <a
@@ -114,10 +115,10 @@ export function AboutHero() {
           <div className="relative rounded-[28px] bg-gradient-to-br from-gold-500/40 via-white/10 to-navy-500/40 p-[1.5px] shadow-[0_30px_80px_-30px_rgba(0,0,0,0.6)]">
             <div className="relative aspect-[4/5] overflow-hidden rounded-[26px] bg-navy-700">
               <Image
-                src="/images/aboutpage2.png"
+                src="/images/aboutpage2.webp"
                 alt="Sir Shehroz Iqbal, CAIE and Edexcel Accounting tutor"
-                width={1448}
-                height={1086}
+                width={2832}
+                height={4240}
                 priority
                 loading="eager"
                 sizes="(min-width: 1024px) 45vw, 90vw"
@@ -127,6 +128,13 @@ export function AboutHero() {
                 aria-hidden
                 className="absolute inset-0 bg-gradient-to-t from-navy-900/70 via-transparent to-transparent"
               />
+            </div>
+          </div>
+
+          {/* Floating 3D brand logo */}
+          <div className="absolute -left-4 -top-6 z-20 hidden sm:block lg:-left-8 lg:-top-8">
+            <div className="rounded-[26px] border border-white/15 bg-white/10 p-2 shadow-[0_24px_60px_-24px_rgba(0,0,0,0.7)] backdrop-blur-md">
+              <Logo3D className="h-24 w-24 lg:h-32 lg:w-32" />
             </div>
           </div>
 
