@@ -8,7 +8,7 @@ export const metadata: Metadata = buildMetadata({
   titleAbsolute: true,
   description:
     "Take the A2 Level Accounting course online with Sir Shehroz Iqbal. Master published accounts, cash flow & costing for CAIE 9706. Enroll for Oct/Nov 2026.",
-  path: "/courses/a2-level",
+  path: "/courses/a2-level-accounting-course",
 });
 
 export default function A2LevelPage() {
@@ -26,8 +26,8 @@ export default function A2LevelPage() {
           __html: JSON.stringify(
             breadcrumbJsonLd([
               { name: "Home", path: "/" },
-              { name: "Courses", path: "/courses/as-level" },
-              { name: "A2 Level", path: "/courses/a2-level" },
+              { name: "Courses", path: "/courses/as-level-accounting-course" },
+              { name: "A2 Level", path: "/courses/a2-level-accounting-course" },
             ])
           ),
         }}

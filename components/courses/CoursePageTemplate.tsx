@@ -39,7 +39,7 @@ export function CoursePageTemplate({
                   Home
                 </Link>
                 <ChevronRight className="h-3.5 w-3.5" strokeWidth={2} />
-                <Link href="/courses/as-level" className="hover:text-white">
+                <Link href="/courses/as-level-accounting-course" className="hover:text-white">
                   Courses
                 </Link>
                 <ChevronRight className="h-3.5 w-3.5" strokeWidth={2} />

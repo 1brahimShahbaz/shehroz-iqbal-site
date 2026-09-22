@@ -34,7 +34,7 @@ export function HeroSlider() {
           </span>
 
           <h1 className="mt-5 font-fraunces text-[38px] font-semibold leading-[1.05] tracking-[-0.02em] text-white sm:text-[52px] lg:text-[60px]">
-            Learn Accounting.{" "}
+            Best O Level Accounts Teacher in Karachi.{" "}
             <span className="italic text-gold-500">Achieve A* Results.</span>
           </h1>
 

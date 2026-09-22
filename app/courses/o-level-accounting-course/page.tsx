@@ -8,7 +8,7 @@ export const metadata: Metadata = buildMetadata({
   titleAbsolute: true,
   description:
     "Build strong Accounting fundamentals for O Level (CAIE 7707) with Sir Shehroz Iqbal in Karachi & online. Enroll now for the Oct/Nov 2026 batch.",
-  path: "/courses/o-level",
+  path: "/courses/o-level-accounting-course",
 });
 
 export default function OLevelPage() {
@@ -26,8 +26,8 @@ export default function OLevelPage() {
           __html: JSON.stringify(
             breadcrumbJsonLd([
               { name: "Home", path: "/" },
-              { name: "Courses", path: "/courses/as-level" },
-              { name: "O Level & IGCSE", path: "/courses/o-level" },
+              { name: "Courses", path: "/courses/as-level-accounting-course" },
+              { name: "O Level & IGCSE", path: "/courses/o-level-accounting-course" },
             ])
           ),
         }}

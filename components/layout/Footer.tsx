@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import { motion, useReducedMotion, type Variants } from "framer-motion";
-import { ArrowRight, Mail, MapPin, MessageCircle } from "lucide-react";
+import { ArrowRight, MapPin, MessageCircle } from "lucide-react";
 import { FooterAffiliations } from "@/components/layout/FooterAffiliations";
+import { ObfuscatedEmail } from "@/components/layout/ObfuscatedEmail";
 import { Logo } from "@/components/shared/Logo";
 import { SITE, CTA_LABELS } from "@/lib/constants";
 import { EASE_OUT } from "@/lib/motion";
@@ -11,16 +12,16 @@ import { EASE_OUT } from "@/lib/motion";
 const quickLinks = [
   { label: "Home", href: "/" },
   { label: CTA_LABELS.enrollInterest, href: "/register" },
-  { label: "About", href: "/about" },
+  { label: "About", href: "/about-shehroz-iqbal" },
   { label: "Extra Credit", href: "/extra-credit" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
 
 const courseLinks = [
-  { label: "AS Level", href: "/courses/as-level" },
-  { label: "A2 Level", href: "/courses/a2-level" },
-  { label: "O Level & IGCSE", href: "/courses/o-level" },
+  { label: "AS Level", href: "/courses/as-level-accounting-course" },
+  { label: "A2 Level", href: "/courses/a2-level-accounting-course" },
+  { label: "O Level & IGCSE", href: "/courses/o-level-accounting-course" },
 ];
 
 const SocialIcon = ({ name }: { name: string }) => {
@@ -191,17 +192,7 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a
-                  href={`mailto:${SITE.email}`}
-                  className="footer-link inline-flex items-start gap-2.5"
-                >
-                  <Mail
-                    className="mt-0.5 h-4 w-4 shrink-0 text-gold-500"
-                    strokeWidth={2}
-                    aria-hidden
-                  />
-                  {SITE.email}
-                </a>
+                <ObfuscatedEmail />
               </li>
               <li className="flex items-start gap-2.5 text-white/80">
                 <MapPin

@@ -87,7 +87,7 @@ for (const [file, url] of Object.entries(COVERS)) {
     const buf = await download(url);
     if (buf.length < 5000) throw new Error("file too small");
     const webp = await sharp(buf)
-      .resize(1200, 630, { fit: "cover" })
+      .resize(800, 450, { fit: "cover" })
       .webp({ quality: 78, effort: 5 })
       .toBuffer();
     fs.writeFileSync(dest, webp);

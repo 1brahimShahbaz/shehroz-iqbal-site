@@ -114,7 +114,7 @@ export function BlogIndex() {
                 src={featuredPost.cover}
                 alt={featuredPost.title}
                 width={1200}
-                height={750}
+                height={675}
                 loading="lazy"
                 sizes="(min-width: 1024px) 60vw, 100vw"
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"

@@ -6,6 +6,7 @@ import { AnimateStagger, AnimateStaggerItem } from "@/components/shared/AnimateS
 import { SectionEyebrow } from "@/components/shared/SectionEyebrow";
 import { HoursCard } from "@/components/contact/HoursCard";
 import { FeedbackForm } from "@/components/contact/FeedbackForm";
+import { ContactEmail } from "@/components/contact/ContactEmail";
 import { ContactMapSection } from "@/components/contact/ContactMapSection";
 import { SITE } from "@/lib/constants";
 import { buildMetadata, localBusinessJsonLd } from "@/lib/seo";
@@ -76,15 +77,7 @@ export default function ContactPage() {
               <p className="mt-5 text-[11px] font-semibold uppercase tracking-wider2 text-gray-500">
                 Email
               </p>
-              <p className="mt-1.5 font-fraunces text-[20px] font-semibold text-navy-900">
-                {SITE.email}
-              </p>
-              <a
-                href={`mailto:${SITE.email}`}
-                className="mt-3 inline-block text-sm font-medium text-navy-900 hover:text-navy-500"
-              >
-                Send an email →
-              </a>
+              <ContactEmail />
             </div>
             </AnimateStaggerItem>
 

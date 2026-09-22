@@ -220,7 +220,6 @@ export const personJsonLd = {
     "A Level Accounting tutor in Karachi, Pakistan. Teaching CAIE 9706, Edexcel Accounting, AS Level, A2 Level and O Level Accounting since 2011. Helping students across Pakistan and internationally achieve top grades.",
   url: SITE.url,
   image: absoluteImageUrl("/images/aboutpage2.webp"),
-  email: SITE.email,
   telephone: SITE.phone,
   address: {
     "@type": "PostalAddress",
@@ -258,7 +257,6 @@ export const localBusinessJsonLd = {
   description:
     "A Level and O Level Accounting tuition in Karachi, Pakistan by Shehroz Iqbal. CAIE 9706 and Edexcel Accounting specialist. In-person classes in Karachi and online tuition across Pakistan and internationally.",
   url: SITE.url,
-  email: SITE.email,
   telephone: SITE.phone,
   priceRange: "$$",
   image: absoluteImageUrl(DEFAULT_OG_IMAGE),
@@ -290,7 +288,7 @@ export const localBusinessJsonLd = {
           name: "AS Level Accounting (CAIE 9706)",
           description:
             "Comprehensive AS Level Accounting tuition in Karachi and online, covering the full CAIE 9706 syllabus.",
-          url: `${SITE.url}/courses/as-level`,
+          url: `${SITE.url}/courses/as-level-accounting-course`,
           provider: { "@id": personId },
         },
       },
@@ -301,7 +299,7 @@ export const localBusinessJsonLd = {
           name: "A2 Level Accounting (CAIE 9706)",
           description:
             "Advanced A2 Level Accounting tuition for CAIE 9706 — evaluation, essays and past-paper mastery.",
-          url: `${SITE.url}/courses/a2-level`,
+          url: `${SITE.url}/courses/a2-level-accounting-course`,
           provider: { "@id": personId },
         },
       },
@@ -312,7 +310,7 @@ export const localBusinessJsonLd = {
           name: "O Level & IGCSE Accounting (CAIE 7707 & 0452)",
           description:
             "O Level and IGCSE Accounting tuition for CAIE 7707 and 0452 — strong foundations in double entry, financial statements and the accounting system.",
-          url: `${SITE.url}/courses/o-level`,
+          url: `${SITE.url}/courses/o-level-accounting-course`,
           provider: { "@id": personId },
         },
       },
@@ -355,35 +353,64 @@ export function courseJsonLd(level: "AS" | "A2" | "O") {
       name: "AS Level Accounting",
       code: "9706",
       desc: "Cambridge International AS Level Accounting (CAIE 9706) with Shehroz Iqbal — tuition in Karachi and online, full syllabus coverage, sample lectures and notes.",
-      path: "/courses/as-level",
+      path: "/courses/as-level-accounting-course",
+      educationalLevel: "AS Level",
+      about: [
+        "CAIE Accounting 9706",
+        "AS Level Accounting",
+        "Financial Accounting",
+        "Cost and Management Accounting",
+      ],
+      timeRequired: "P9M",
     },
     A2: {
       name: "A2 Level Accounting",
       code: "9706",
       desc: "Cambridge International A2 Level Accounting with Shehroz Iqbal — tuition in Karachi and online, advanced theory, evaluation, and past-paper mastery.",
-      path: "/courses/a2-level",
+      path: "/courses/a2-level-accounting-course",
+      educationalLevel: "A2 Level",
+      about: [
+        "CAIE Accounting 9706",
+        "A2 Level Accounting",
+        "Financial Accounting",
+        "Cost and Management Accounting",
+        "Cash Flow Statements",
+        "Published Accounts",
+      ],
+      timeRequired: "P9M",
     },
     O: {
       name: "O Level & IGCSE Accounting",
       code: "7707",
       desc: "Cambridge O Level (7707) and IGCSE (0452) Accounting with Shehroz Iqbal — tuition in Karachi and online, strong foundations in double entry, financial statements and the accounting system.",
-      path: "/courses/o-level",
+      path: "/courses/o-level-accounting-course",
+      educationalLevel: "O Level",
+      about: [
+        "CAIE Accounting 7707",
+        "IGCSE Accounting 0452",
+        "O Level Accounting",
+        "Double Entry Bookkeeping",
+        "Financial Statements",
+        "Accounting Procedures",
+      ],
+      timeRequired: "P12M",
     },
   };
   const m = mapping[level];
   return {
     "@context": "https://schema.org",
     "@type": "Course",
+    "@id": `${SITE.url}${m.path}#course`,
     name: m.name,
     description: m.desc,
     courseCode: m.code,
-    provider: {
-      "@type": "Person",
-      name: SITE.personName,
-      url: SITE.url,
-    },
-    instructor: { "@id": personId },
     url: `${SITE.url}${m.path}`,
+    provider: { "@id": personId },
+    instructor: { "@id": personId },
+    educationalLevel: m.educationalLevel,
+    about: m.about,
+    timeRequired: m.timeRequired,
+    inLanguage: "en",
   };
 }
 
@@ -425,6 +452,8 @@ export function faqPageJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
+    "@id": `${SITE.url}/#faq`,
+    url: SITE.url,
     mainEntity: HOME_FAQS.map((faq) => ({
       "@type": "Question",
       name: faq.question,

@@ -12,9 +12,9 @@ import { cn } from "@/lib/utils";
 import type { CourseLevel } from "@/data/courses";
 
 const TABS: { id: CourseLevel; label: string; href: string }[] = [
-  { id: "AS", label: "AS Level", href: "/courses/as-level" },
-  { id: "A2", label: "A2 Level", href: "/courses/a2-level" },
-  { id: "O", label: "O Level", href: "/courses/o-level" },
+  { id: "AS", label: "AS Level", href: "/courses/as-level-accounting-course" },
+  { id: "A2", label: "A2 Level", href: "/courses/a2-level-accounting-course" },
+  { id: "O", label: "O Level", href: "/courses/o-level-accounting-course" },
 ];
 
 export function SampleLectures() {

@@ -15,12 +15,12 @@ type StaticRoute = {
 
 const STATIC_ROUTES: StaticRoute[] = [
   { path: "", changeFrequency: "weekly", priority: 1 },
-  { path: "/about", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/about-shehroz-iqbal", changeFrequency: "monthly", priority: 0.8 },
   { path: "/register", changeFrequency: "monthly", priority: 0.9 },
   { path: "/contact", changeFrequency: "monthly", priority: 0.8 },
-  { path: "/courses/as-level", changeFrequency: "weekly", priority: 0.9 },
-  { path: "/courses/a2-level", changeFrequency: "weekly", priority: 0.9 },
-  { path: "/courses/o-level", changeFrequency: "weekly", priority: 0.9 },
+  { path: "/courses/as-level-accounting-course", changeFrequency: "weekly", priority: 0.9 },
+  { path: "/courses/a2-level-accounting-course", changeFrequency: "weekly", priority: 0.9 },
+  { path: "/courses/o-level-accounting-course", changeFrequency: "weekly", priority: 0.9 },
   { path: "/blog", changeFrequency: "daily", priority: 0.8 },
   { path: "/extra-credit", changeFrequency: "monthly", priority: 0.7 },
 ];

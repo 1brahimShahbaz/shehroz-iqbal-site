@@ -8,7 +8,7 @@ export const metadata: Metadata = buildMetadata({
   titleAbsolute: true,
   description:
     "Join the AS Level Accounting course online with Sir Shehroz Iqbal. Live classes, recorded lessons & notes for CAIE 9706. Enroll for Oct/Nov 2026.",
-  path: "/courses/as-level",
+  path: "/courses/as-level-accounting-course",
 });
 
 export default function ASLevelPage() {
@@ -26,8 +26,8 @@ export default function ASLevelPage() {
           __html: JSON.stringify(
             breadcrumbJsonLd([
               { name: "Home", path: "/" },
-              { name: "Courses", path: "/courses/as-level" },
-              { name: "AS Level", path: "/courses/as-level" },
+              { name: "Courses", path: "/courses/as-level-accounting-course" },
+              { name: "AS Level", path: "/courses/as-level-accounting-course" },
             ])
           ),
         }}

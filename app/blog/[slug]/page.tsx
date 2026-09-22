@@ -209,7 +209,7 @@ export default async function BlogPostPage({
                   13+ years of teaching. 1,250+ students.
                 </p>
                 <Link
-                  href="/courses/as-level"
+                  href="/courses/as-level-accounting-course"
                   className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full border-[1.5px] border-gold-500 px-5 py-2.5 text-sm font-semibold text-navy-900 hover:bg-gold-500 hover:text-white"
                 >
                   View courses

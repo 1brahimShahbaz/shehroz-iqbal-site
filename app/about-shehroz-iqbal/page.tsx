@@ -17,7 +17,7 @@ export const metadata: Metadata = buildMetadata({
   titleAbsolute: true,
   description:
     "Meet Sir Shehroz Iqbal, an Accounting tutor with 13+ years teaching O & A Level students in Karachi and online. Read his story and teaching approach.",
-  path: "/about",
+  path: "/about-shehroz-iqbal",
 });
 
 const qualifications = [
