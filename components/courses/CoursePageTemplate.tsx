@@ -13,6 +13,29 @@ import { syllabusByLevel } from "@/data/syllabi";
 import { SITE, CTA_LABELS } from "@/lib/constants";
 import { trackEvent } from "@/lib/analytics";
 
+/** Renders `**phrase**` segments as bold text. */
+function RichText({
+  text,
+  strongClassName = "font-semibold text-navy-900",
+}: {
+  text: string;
+  strongClassName?: string;
+}) {
+  return (
+    <>
+      {text.split(/\*\*(.+?)\*\*/g).map((part, i) =>
+        i % 2 === 1 ? (
+          <strong key={i} className={strongClassName}>
+            {part}
+          </strong>
+        ) : (
+          part
+        )
+      )}
+    </>
+  );
+}
+
 export function CoursePageTemplate({
   course,
 }: {
@@ -53,7 +76,10 @@ export function CoursePageTemplate({
                 <span className="italic text-gold-500">Sir Shehroz Iqbal.</span>
               </h1>
               <p className="mt-5 max-w-md text-[17px] leading-relaxed text-white/80">
-                {course.subhead}
+                <RichText
+                  text={course.subhead}
+                  strongClassName="font-semibold text-white"
+                />
               </p>
               <a
                 href={SITE.orbedDashboard}
@@ -109,7 +135,9 @@ export function CoursePageTemplate({
               {course.syllabusHeading ?? "Try a lecture before you register."}
             </h2>
             <p className="mt-3 text-[16px] text-gray-500">
-              {course.syllabusIntro ?? (
+              {course.syllabusIntro ? (
+                <RichText text={course.syllabusIntro} />
+              ) : (
                 <>
                   Free {course.badgeLabel} ({course.syllabus}) lessons are
                   available below to help you explore the course before
@@ -123,6 +151,30 @@ export function CoursePageTemplate({
           </div>
         </div>
       </AnimateSection>
+
+      {course.infoSections.map((info, i) => (
+        <AnimateSection
+          key={info.heading}
+          index={3 + i}
+          className={`${i % 2 === 0 ? "bg-grid-white" : "bg-cream-50"} py-16 lg:py-20`}
+        >
+          <div className="container-x">
+            <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1fr_1.25fr] lg:gap-16">
+              <div>
+                {info.eyebrow && <SectionEyebrow>{info.eyebrow}</SectionEyebrow>}
+                <h2
+                  className={`${info.eyebrow ? "mt-3 " : ""}font-fraunces text-[28px] font-semibold leading-tight text-navy-900 sm:text-[36px]`}
+                >
+                  {info.heading}
+                </h2>
+              </div>
+              <p className="text-[16px] leading-relaxed text-gray-500 lg:pt-8 lg:text-[17px]">
+                <RichText text={info.body} />
+              </p>
+            </div>
+          </div>
+        </AnimateSection>
+      ))}
     </>
   );
 }
